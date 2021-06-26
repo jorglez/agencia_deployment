@@ -1,0 +1,24 @@
+extends ./layouts/index
+
+block contenido 
+    main.container.mt-5
+        h1.text-center= pagina
+        blockquote.text-center Lee sobre nuestros clientes y sus experiencias
+
+        include ./layouts/bloque_testimoniales
+
+        .row
+            h2.d-block.w-100.text-center Agrega un testimonial
+            .row.justify-content-center.col
+                .col-md-8 
+                    form(action="/testimoniales", method="post")
+                        .form-group 
+                            label(for="nombre") Nombre: 
+                            input#nombre.form-control(type="text", placeholder="John Doe" name="nombre" ,required)
+                        .form-group
+                            label(for="email") e-mail: 
+                            input#email.form-control(type="email", placeholder="tucorreo@mail.com" name="email" ,required)
+                        .form-group
+                            label(for="mensaje") Mensaje: 
+                            textarea#mensaje.form-control(type="text", placeholder="Dinos lo que piensas" name="mensaje", rows=3, required)
+                        button.btn.btn-success.btn-block(type="submit") Enviar

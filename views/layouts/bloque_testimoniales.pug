@@ -1,0 +1,9 @@
+.row.testimoniales 
+    each testimonial in testimoniales 
+        - const {nombre, mensaje} = testimonial
+        .col-md-6.col-lg-4.mb-4 
+            .card 
+                .card-body 
+                    blockquote.blockquote
+                    p.mb-0= mensaje
+                    footer.blockquote-footer= nombre
